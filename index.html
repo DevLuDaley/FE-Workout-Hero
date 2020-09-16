@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample JS Project frontend</title>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="new-workout-container">
+            <h1>Create a New Workout</h1>
+            <form id="new-workout-form">
+                <label for="workout-type">Workout Type:</label>
+                <input type="text" name="workout-type" id="new-workout-type" placeholder="cardio">
+
+                <label for="workout-name">Name:</label>
+                <input type="text" name="workout-name" id="new-workout-name" placeholder="drop-down-menu">
+
+                <label for="workout-distance">Distance:</label>
+                <input type="text" name="workout-distance" id="new-workout-distance" placeholder="drop-down-menu">
+
+                <label for="workout-duration">Duration:</label>
+                <input type="text" name="workout-duration" id="new-workout-duration" placeholder="drop-down-menu">
+
+                <input type="submit" value="save workout">
+            </form>
+        </div>
+        <div id="workouts-container">
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="src/components/workout.js"></script>
+    <script type="text/javascript" src="src/adapters/workoutsAdapter.js"></script>
+    <script type="text/javascript" src="src/components/workouts.js"></script>
+    <script type="text/javascript" src="src/components/app.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <!-- <script type="text/javascript" src="src/index.js"></script> -->
+</body>
+
+</html>
