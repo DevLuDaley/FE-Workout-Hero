@@ -31,12 +31,15 @@ class WorkoutsAdapter {
     )
   }
   editWorkout(workoutId) {
-     const workoutUpdateParams = {
+     const workoutEditParams = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ workout })
+      body: JSON.stringify({ workoutId })
     }
-  }
+    return fetch(`${this.baseUrl}/${workoutId}`, workoutEditParams).then(res =>
+      res.json()
+      )
+    }
 }

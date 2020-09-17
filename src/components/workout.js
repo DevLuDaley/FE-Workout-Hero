@@ -16,7 +16,7 @@ class Workout {
       this
     )}' class='workout-element'><a class="show-link" href='#'>${
       this.name
-    }</a> <button id='edit-button'>Edit</button> <i data-action='delete-workout' class="em  em-x"></i>
+    }</a> <button class='edit-buttons' data-action='edit-workout'>Edit</button> <i data-action='delete-workout' class="em  em-x"></i>
     duration = ${this.duration}
     workout_type = ${this.workout_type}
     distance = ${this.distance}

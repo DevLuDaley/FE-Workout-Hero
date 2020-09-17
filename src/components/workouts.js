@@ -13,8 +13,17 @@ class Workouts {
     this.workoutDistance = document.getElementById('new-workout-distance')
     this.workoutDuration = document.getElementById('new-workout-duration')
     this.workoutsNode = document.getElementById('workouts-container')
+    this.editBtns = document.querySelectorAll('ul')
+    // this.workoutsList = document.getElementById('ul')
+    console.log(this.editBtns)
     this.workoutsForm.addEventListener('submit',this.handleAddWorkout.bind(this))
     this.workoutsNode.addEventListener('click',this.handleDeleteWorkout.bind(this))
+    this.workoutsNode.addEventListener('click',this.handleEditWorkout.bind(this))
+
+    // for (const btn in this.editBtns){
+    //   btn.addEventListener('click', this.handleEditWorkout(this))
+    // }
+    // this.editBtns.addEventListener('click',this.handleEditWorkout.bind(this))
   }
 
   fetchAndLoadWorkouts() {
@@ -49,6 +58,15 @@ class Workouts {
     )
   }
 
+    handleEditWorkout() {
+    if (event.target.dataset.action === 'edit-workout' && event.target.parentElement.classList.contains("workout-element")) {
+      const workoutId = event.target.parentElement.dataset.workoutid
+      this.adapter.editWorkout(workoutId)
+    //   .then( resp => this.editdWorkout(resp) )
+    }
+    console.log("hi Lu!")
+  }
+
   handleDeleteWorkout() {
     if (event.target.dataset.action === 'delete-workout' && event.target.parentElement.classList.contains("workout-element")) {
       const workoutId = event.target.parentElement.dataset.workoutid
@@ -56,6 +74,8 @@ class Workouts {
       .then( resp => this.removeDeletedWorkout(resp) )
     }
   }
+
+
 
   removeDeletedWorkout(deleteResponse) {
     this.workouts = this.workouts.filter( workout => workout.id !== deleteResponse.workoutId )
