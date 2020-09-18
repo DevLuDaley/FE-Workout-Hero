@@ -3,10 +3,13 @@ body {
     font-weight: 300;
     line-height: 1.6em;
     font-size: 1.3em;
+    background-image: url("./static/free-weights-gym-equipment.jpg");
 }
 
 a {
-    color: #97659;
+    /* color: #97659; */
+    color: #6699ff;
+    /* color: #cc33ff */
 }
 
 input {
@@ -19,8 +22,71 @@ input {
     margin-top: 50px;
 }
 
+.all-containers {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #8ca3a9;
+    opacity: 0.87;
+    /* display: flex; */
+    justify-content: center;
+
+    /* background-image: https: //st.depositphotos.com/1110663/1258/i/450/("depositphotos_12582372-stock-photo-gym-room.jpg"); */
+
+    margin-top: 20px;
+    width: 960px;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #8ca3a9; */
+    opacity: 0.87;
+
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #8ca3a9; */
+    opacity: 0.87;
+
+}
+
+#toggle-edit-create {
+    background-color: lightblue;
+    border-radius: 8px;
+    height: 70px;
+    width: 80px;
+    font-size: 14px;
+    /* box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), */
+    /* 0 17px 50px 0 rgba(0, 0, 0, 0.19); */
+}
+
+/* #workouts-container { */
+/* width: 960px; */
+/* align-content: center; */
+/* margin: 20px; */
+/* position: relative; */
+/* position: center; */
+/* margin-top: 20px; */
+/* top: 50%; */
+/* left: 50%; */
+/* transform: translate(-50%, -50%); */
+/* margin-left: auto; */
+/* margin-right: auto; */
+/* width: 8em */
+
+/* } */
+
 ul {
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 .delete-workout-link {
