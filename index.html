@@ -21,48 +21,63 @@
         <button class="center" id="toggle-edit-create">Edit Workout</button>
 
         <div class="all-containers" id="edit-workout-container">
-            <form class='hidden ' id="edit-workout-form">
-                <h1>Edit Workout</h1>
-                <label for="workout-type">Workout Type:</label>
-                <input type="text" name="edit-workout-type" id="edit-workout-type" placeholder="cardio">
+            <form class='hidden' id="edit-workout-form">
+                <fieldset>
+                    <legend>Edit Workout
+                    </legend>
+                    <!-- <h1>Edit Workout</h1> -->
+                    <label for="workout-type">Workout Type:</label>
+                    <input type="text" name="edit-workout-type" id="edit-workout-type" placeholder="cardio">
 
-                <label for="workout-name">Name:</label>
-                <input type="text" name="edit-workout-name" id="edit-workout-name" placeholder="drop-down-menu">
+                    <label for="workout-name">Name:</label>
+                    <input type="text" name="edit-workout-name" id="edit-workout-name" placeholder="drop-down-menu">
 
-                <label for="workout-distance">Distance:</label>
-                <input type="text" name="edit-workout-distance" id="edit-workout-distance" placeholder="drop-down-menu">
+                    <label for="workout-distance">Distance:</label>
+                    <input type="text" name="edit-workout-distance" id="edit-workout-distance"
+                        placeholder="drop-down-menu">
 
-                <label for="workout-duration">Duration:</label>
-                <input type="text" name="edit-workout-duration" id="edit-workout-duration" placeholder="drop-down-menu">
+                    <label for="workout-duration">Duration:</label>
+                    <input type="text" name="edit-workout-duration" id="edit-workout-duration"
+                        placeholder="drop-down-menu">
 
+                </fieldset>
                 <input type="submit" value="update workout">
             </form>
         </div>
         <div class="all-containers" id="new-workout-container">
             <form id="new-workout-form">
-                <h1>Create Workout</h1>
-                <label for="workout-type">Workout Type:</label>
-                <input type="text" name="workout-type" id="new-workout-type" placeholder="cardio">
+                <!-- <h1>Create Workout</h1> -->
+                <fieldset>
+                    <legend> Create Workout </legend>
 
-                <label for="workout-name">Name:</label>
-                <input type="text" name="workout-name" id="new-workout-name" placeholder="drop-down-menu">
+                    <label for="workout-type">Workout Type:</label>
+                    <input type="text" name="workout-type" id="new-workout-type" placeholder="cardio">
 
-                <label for="workout-distance">Distance:</label>
-                <input type="text" name="workout-distance" id="new-workout-distance" placeholder="drop-down-menu">
+                    <label for="workout-name">Name:</label>
+                    <input type="text" name="workout-name" id="new-workout-name" placeholder="drop-down-menu">
 
-                <label for="workout-duration">Duration:</label>
-                <input type="text" name="workout-duration" id="new-workout-duration" placeholder="drop-down-menu">
+                    <label for="workout-distance">Distance:</label>
+                    <input type="text" name="workout-distance" id="new-workout-distance" placeholder="drop-down-menu">
 
+                    <label for="workout-duration">Duration:</label>
+                    <input type="text" name="workout-duration" id="new-workout-duration" placeholder="drop-down-menu">
+
+                </fieldset>
                 <input type="submit" value="save workout">
             </form>
         </div>
 
-        <div class="all-containers">
-            <h1>Workouts</h1>
-        </div>
-        <div class="all-containers" id="workouts-container">
+        <div class="all-containers" id="larger-workouts-container">
+            <!-- <h1>Workouts</h1> -->
+            <fieldset>
+                <legend>
+                    <h1> Workouts </h1>
+                </legend>
+                <div class="all-containers" id="workouts-container">
+            </fieldset>
 
         </div>
+    </div>
     </div>
 
     <script type="text/javascript" src="src/components/workout.js"></script>
