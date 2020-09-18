@@ -22,7 +22,7 @@ class Workouts {
     this.workoutsNode = document.getElementById('workouts-container')
     this.editBtns = document.querySelectorAll('ul')
     // this.workoutsList = document.getElementById('ul')
-    console.log(this.editBtns)
+    // console.log(this.editBtns)
     this.workoutsForm.addEventListener('submit',this.handleAddWorkout.bind(this))
     this.workoutsNode.addEventListener('click',this.handleDeleteWorkout.bind(this))
     this.workoutsNode.addEventListener('click',this.handleEditWorkout.bind(this))
@@ -55,7 +55,7 @@ class Workouts {
       "workout_type": this.workoutType.value,
       "duration": this.workoutDuration.value
     }
-    console.log(workoutParams)
+    // console.log(workoutParams)
 
     this.adapter.createWorkout(workoutParams)
     .then( (workoutJSON) => this.workouts.push(new Workout(workoutJSON)) )
@@ -76,7 +76,7 @@ class Workouts {
       this.adapter.editWorkout(workoutId)
     //   .then( resp => this.editdWorkout(resp) )
     }
-    console.log("hi Lu!")
+    // console.log("hi Lu!")
   }
 
   handleDeleteWorkout() {
@@ -88,14 +88,6 @@ class Workouts {
   }
 
   handleToggle() {
-    // status = "off" || "on"
-    // status = "off"
-    // if(this.editsForm == "off") {
-      // status = "on"
-      // else if(status == "on"){
-      //   status = "off"
-      // }
-    // }
     let hiddenTrue = this.editsForm.attributes[0].value.includes("hidden");
     
     if(hiddenTrue == true) {
