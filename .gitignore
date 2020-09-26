@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+private-files/index-pre-cleanup.html
+private-files/index-pre-routines.html
+private-files/tables.html
