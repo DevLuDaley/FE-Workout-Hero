@@ -1,9 +1,9 @@
 class Workouts {
   constructor() {
     this.workouts = []
-    this.initBindingsAndEventListeners()
+    // this.initBindingsAndEventListeners()
     this.adapter = new WorkoutsAdapter()
-    this.fetchAndLoadWorkouts()
+    // this.fetchAndLoadWorkouts()
   }
 
   initBindingsAndEventListeners() {
@@ -34,7 +34,7 @@ class Workouts {
     // }
     // this.editBtns.addEventListener('click',this.handleEditWorkout.bind(this))
   }
-
+/**
   fetchAndLoadWorkouts() {
     this.adapter.getWorkouts()
     // .then(workoutsJSON => workoutsJSON.forEach( workout => this.workouts.
@@ -44,7 +44,9 @@ class Workouts {
       .catch( (error) => console.log(error) )
     //   .catch( (error) => console.log("you broke it son!") )
   }
+ */
 
+ /*
   handleAddWorkout() {
     // console.log(this.workoutName.value)
     event.preventDefault()
@@ -69,7 +71,10 @@ class Workouts {
     // this.workoutDuration.value = '' 
     )
   }
+ */
 
+
+/*
     handleEditWorkout() {
     if (event.target.dataset.action === 'edit-workout' && event.target.parentElement.classList.contains("workout-element")) {
       const workoutId = event.target.parentElement.dataset.workoutid
@@ -78,7 +83,9 @@ class Workouts {
     }
     // console.log("hi Lu!")
   }
+ */
 
+ /*
   handleDeleteWorkout() {
     if (event.target.dataset.action === 'delete-workout' && event.target.parentElement.classList.contains("workout-element")) {
       const workoutId = event.target.parentElement.dataset.workoutid
@@ -87,6 +94,10 @@ class Workouts {
     }
   }
 
+   */
+
+
+  /*
   handleToggle() {
     let hiddenTrue = this.editsForm.attributes[0].value.includes("hidden");
     
@@ -125,16 +136,21 @@ class Workouts {
     // this.editsForm.setAttribute('hidden', 'false')
   }
 
+   */
+
+/*
   removeDeletedWorkout(deleteResponse) {
     this.workouts = this.workouts.filter( workout => workout.id !== deleteResponse.workoutId )
     this.render()
   }
-
+  
+  
   workoutsHTML() {
     return this.workouts.map( workout => workout.render() ).join('')
   }
-
+  
   render() {
     this.workoutsNode.innerHTML = `<ul>${this.workoutsHTML()}</ul>`
   }
+  */
 }
