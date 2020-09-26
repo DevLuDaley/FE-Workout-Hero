@@ -22,7 +22,7 @@ class Routines {
     this.routineDuration = document.getElementById('new-routine-duration')
     this.routinesNode = document.getElementById('routines-container')
     this.editRoutineType = document.getElementById('edit-routine-type')
-    this.editRoutineName = document.getElementById('edit-routine-name')
+    // this.editRoutineName = document.getElementById('edit-routine-name')
     this.editRoutineDistance = document.getElementById('edit-routine-distance')
     this.editRoutineDuration = document.getElementById('edit-routine-duration')
     this.routinesNode = document.getElementById('routines-container')
@@ -34,7 +34,7 @@ class Routines {
     this.spaContainer.addEventListener('click',this.handleDeleteRoutine.bind(this))
     this.spaContainer.addEventListener('click',this.handleDropDownMenu.bind(this))
     this.spaContainer.addEventListener('click',this.addWorkout.bind(this))
-    //? need to rewire the addRoutine method to use data action so that the handleEdit function won't block it.
+    //? need to rewire the addRoutine method to use data action so that the handleEdit function won't block it? UPDATE=> fixed the issue by chenging the trigger event for click to submit
     this.spaContainer.addEventListener('submit',this.handleEdit.bind(this))
     // this.routinesNode.addEventListener('click',this.handleEditRoutine.bind(this))
     // for (const btn in this.editBtns){
@@ -102,7 +102,7 @@ this.routineCard.innerHTML  = routinesString;
     // event.stopPropagation() 
     const routineParams =
     {
-      "name": this.routineName.value
+      "routine_name": this.routineName.value
     }
     // console.log('Routines -> handleAddRoutine -> this.routineName.value', this.routineName.value);
     // console.log(routineParams)
@@ -117,37 +117,49 @@ this.routineCard.innerHTML  = routinesString;
   }
 
     handleEdit(event) {
-      this.editRoutineName = document.getElementById('edit-routine-name')
+      event.preventDefault()
+      // this.editRoutineName = document.getElementById('edit-routine-name')
       this.editRoutineWorkoutName = document.getElementById('edit-routine-workout-name')
-       event.preventDefault()
-      // event.stopPropagation() 
-       const updateRoutineParams =
-// console.log('Routines -> handleEdit -> event.target.dataset.action', event.target.dataset.action);
+      console.log('Routines -> handleEdit -> this.editRoutineWorkoutName', this.editRoutineWorkoutName);
+        
+      this.routineFormId = document.getElementById(`edit-routine-${event}`)
+      console.log('Routines -> handleEdit -> this.routineFormId', this.routineFormId);
 
-    // if (event.target.dataset.action != null && event.target.dataset.action.includes('update-routine')
-    // //  && event.target.parentElement.classList.contains("routine-element")
-    // ) 
-    {
-    
-    // "name": this.editRoutineName.value,
-    name: this.editRoutineWorkoutName.value
+       const updateRoutineParams = {
+         'routineId': '7',
+         'workout_name': this.editRoutineWorkoutName, //.value,
+         'workout_type': 'Cardio',
+         'distance': '',
+         'duration': ''
+       }
 
-    }
+       this.adapter.editRoutine(updateRoutineParams)
+       .then( this.assignRoutines.bind(this) )
+      
+       //  edit-routine-2
 
+  console.log('Routines -> handleEdit -> this.editRoutineWorkoutName', this.editRoutineWorkoutName);
+  // this.editRoutineWorkoutName.value
+  // console.log('Routines -> handleEdit -> this.editRoutineWorkoutName.value', this.editRoutineWorkoutName.value);
     // else {console.log("NOPE")}
+    // .then( this.assignRoutines.bind(this) )
+    // .then( this.render.bind(this) )
+    // .then(
+    //   this.routinesForm.reset() )
   }
 
   handleDeleteRoutine(event) {
+    // event.preventDefault()
     if (event.target.dataset.action != null && event.target.dataset.action.includes("delete-routine")
     ) 
     // if (event.target.dataset == "DOMStringMap"
     // //  && event.target.parentElement.classList.contains("routine-element")
     // if (event.target.dataset.action.includes("delete-routine")
     {
-      console.log("THE IF STATEMENT IS TRUE!")
+      // console.log("THE IF STATEMENT IS TRUE!")
       // const routineId = event.target.parentElement.dataset.routineid
       const routineId = event.target.dataset.action.replace("delete-routine-", "")
-      console.log('ROUTINE-ID' ,routineId)
+      // console.log('ROUTINE-ID' ,routineId)
       // const deleteAction = event.target.dataset.action
       //     console.log("ACTION: ", deleteAction)
       // const routineId = deleteAction.replace('delete-routine-', '')
@@ -155,7 +167,7 @@ this.routineCard.innerHTML  = routinesString;
       .then( resp => this.removeDeletedRoutine(resp) )
     }
     
-    else{ console.log("THE IF STATEMENT IS FALSE")}
+    // else{ console.log("THE IF STATEMENT IS FALSE")}
   }
 
 
@@ -171,7 +183,7 @@ this.adapter.getRoutines()
          // ! create new note instance/object
          
         })
-        this.uniqueWorkoutsList = [...new Set(this.allWorkoutsList.map(item => item.name))];
+        this.uniqueWorkoutsList = [...new Set(this.allWorkoutsList.map(item => item.workout_name))];
         // console.log(this.uniqueWorkoutsList)
         return this.uniqueWorkoutsList
     } )        
