@@ -1,40 +1,238 @@
+
+* {
+    /* margin: 0; */
+    margin: auto;
+     /* background-image: url("./static/free-weights-gym-equipment.jpg"); */
+    /* background: rgb(71, 68, 68); */
+    /* display: grid; */
+    /* padding: 0; */
+    /* grid-template-columns: 30% 60%; */
+    /* grid-template-columns: 1fr 10fr; */
+    /* grid-template-rows: 1fr 3fr; */
+    /* grid-column-gap: 1em; */
+    /* grid-row-gap: 10em; */
+}
+.container {
+     /* background-image: url("./static/free-weights-gym-equipment.jpg"); */
+    /* display: grid; */
+    /* padding: 50px; */
+    /* padding: 50px; */
+    margin: 150px;
+    height: 500px;
+    width: 500px;
+    /* margin: auto; */
+    /* background-color: #072029; */
+    background-color: #25657c;
+    /* opacity: 88%; */
+}
+
+.container>section {
+    /* background: orange; */
+    
+    /* padding: 3em; */
+}
+
+.container>div:nth-child(odd) {
+    
+    /* background: #833f3f; */
+    /* padding: 1em; */
+}
+
+#spa-container {
+    padding: 15px;
+    /* height: 500px; */
+    /* background: red; */
+    /* display: flex; */
+    /* display: grid; */
+}
+
+#navbar {
+
+}
+
+
+
+.btns-all {
+border-radius: 8px;
+font-size: 10px;
+background-color: #8ca3a9;
+opacity: 0.87;
+}
+
+#btn-toggle-forms {
+    height: 15px;
+    width: 100px;
+}
+
+.all-routine-edit-btns {
+    font-size: 13px;
+    /* color: pink; */
+    /* padding: 10px border-color: red; */
+}
+
+.routine-names {
+    /* color: purple; */
+    color: rgb(55, 167, 204);
+    font-size: 20px;
+    
+}
+
+.routine-name-btns-wrapper {
+    background-color: rgb(30, 62, 99);
+    /* background-color: rgba(24, 47, 150, 0.377); */
+    /* background-color: rgb(0, 23, 128); */
+    display: flex;
+    /* display: auto; */
+    padding: 1;
+    grid-column-gap: 1em;
+    /* opacity: 85%; */
+}
+
+
+/* .routine-title-buttons>.em-x { */
+    /* ! delete button */
+.routine-name-wrapper>.em-x {
+    /* color: green; */
+    /* padding: 20px; */
+    background-color: rgb(188, 231, 188);
+    /* padding: center; */
+    /* height: auto; */
+    
+    /* margin: 5px; */
+    /* height: 28px; */
+    /* display: table-cell; */
+    /* padding-left: 27px; */
+    /* vertical-align: middle; */
+}
+
+[data-action="edit-routine"] {
+    /* padding: 2rem; */
+    /* font-size: 125%; */
+    /* color: pink; */
+}
+
+.all-routines>section:nth-child(3) {
+    /* background: #db4848; */
+    /* background: #db4848; */
+    /* background-position: 5px 5px; */
+    /* padding: 1em; */
+    /* grid-template-rows: 1fr 3fr; */
+    
+}
+.routine-workout-block{
+    /* background: limegreen; */
+    /* display: flex; */
+    /* grid-template-rows: 25% 10px 10px auto; */
+    /* grid-template-columns: 25% 10px 10px auto; */
+}
+.all-routine-workouts {
+    /* background-color: red; */
+    display: flex;
+    padding: 1;
+    
+    border: 2px solid pink; 
+    border-radius: 5px;
+    /* padding: 3px */
+}
+
+.all-routine-workouts:nth-child(even) {
+    /* background: rgb(255, 27, 187); */
+    /* background-color: yellow; */
+    
+
+}
+
+.routine-workout-names {
+    /* color: yellow; */
+    color: rgb(139, 139, 89);
+
+    /* border-style: round; */
+    /* border: round; */
+    border: 2px solid rgb(149, 169, 187);
+    border-radius: 5px;
+      /* width: 60px; */
+      /* height: 20px; */
+      padding: 10px;
+      /* margin: 10px; */
+}
+
+.routine-workout-details{
+    /* background: rgb(50, 128, 102); */
+    /* background: lightblue; */
+    /* display: flex; */
+    /* display: grid; */
+}
+
+#weight-training-workouts {
+    /* background-color: orange; */
+    /* border-color: green; */
+    
+}
+
+#cardio-rush-workouts {
+    /* background-color: pink; */
+    /* border-color: green; */
+}
+
+
+.routine-workout-details{}
+.sub-containers {
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* background-color: #8ca3a9; */
+    /* opacity: 0.87; */
+    /* margin: 10; */
+    /* padding: 0; */
+    /* display: flex; */
+    /* justify-content: center; */
+
+    /* background-image: https: //st.depositphotos.com/1110663/1258/i/450/("depositphotos_12582372-stock-photo-gym-room.jpg"); */
+
+    /* margin-top: 20px; */
+    /* width: 960px; */
+
+}
+
+.edit-create-wrapper{
+
+}
+
+.edit-create-containers{}
+
+#edit-routine-container {}
+
+#new-routine-container {
+     /* background-image: url("./static/free-weights-gym-equipment.jpg"); */
+}
+
+
+
+#routines-container {}
+
+
+
+/* .yellow {
+    background: yellow
+} */
+
+
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     line-height: 1.6em;
     font-size: 1.3em;
-    background-image: url("./static/free-weights-gym-equipment.jpg");
+    */
+    /* background-image: url("./static/free-weights-gym-equipment.jpg"); */
 }
 
 a {
     /* color: #97659; */
-    color: #6699ff;
+    /* color: #6699ff; */
     /* color: #cc33ff */
 }
 
 input {
-    font-size: 1.5em;
-}
-
-.container {
-    width: 960px;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.all-containers {
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #8ca3a9;
-    opacity: 0.87;
-    /* display: flex; */
-    justify-content: center;
-
-    /* background-image: https: //st.depositphotos.com/1110663/1258/i/450/("depositphotos_12582372-stock-photo-gym-room.jpg"); */
-
-    margin-top: 20px;
-    width: 960px;
-
+    /* font-size: 1.5em; */
 }
 
 .hidden {
@@ -47,43 +245,9 @@ input {
     margin-right: auto;
     /* background-color: #8ca3a9; */
     opacity: 0.87;
-
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* background-color: #8ca3a9; */
-    opacity: 0.87;
 
-}
-
-#toggle-edit-create {
-    background-color: lightblue;
-    border-radius: 8px;
-    height: 70px;
-    width: 80px;
-    font-size: 14px;
-    /* box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), */
-    /* 0 17px 50px 0 rgba(0, 0, 0, 0.19); */
-}
-
-/* #workouts-container { */
-/* width: 960px; */
-/* align-content: center; */
-/* margin: 20px; */
-/* position: relative; */
-/* position: center; */
-/* margin-top: 20px; */
-/* top: 50%; */
-/* left: 50%; */
-/* transform: translate(-50%, -50%); */
-/* margin-left: auto; */
-/* margin-right: auto; */
-/* width: 8em */
-
-/* } */
 
 ul {
     /* padding-left: 20px; */
