@@ -1,7 +1,7 @@
 class Routine {
   constructor(routineJSON) {
     this.id = routineJSON.id
-    this.name = routineJSON.name
+    this.routine_name = routineJSON.routine_name
     this.workouts = routineJSON.workouts
     // this.renderRoutinesAndWorkouts
     // this.mapWorkouts()
@@ -12,7 +12,7 @@ class Routine {
 
   // renderShow() {
   //   return `<label for="routine-name">
-  //   <h3>${this.name}</h3>
+  //   <h3>${this.workout_name}</h3>
   //   </label>`
   // }
 
@@ -25,9 +25,9 @@ class Routine {
 
                 
 
-                <h1 class="routine-names">${this.name}</h1>
+                <h1 class="routine-names">${this.routine_name}</h1>
 
-                <button id='btn-routine-${this.id}' class="${this.name.replace(' ','-').toLowerCase()}-workout-edit-btns all-routine-edit-btns"
+                <button id='btn-routine-${this.id}' class="${this.routine_name.replace(' ','-').toLowerCase()}-workout-edit-btns all-routine-edit-btns"
 
                 data-action='edit-routine'>Edit</button>
 <section class='workout-list-unique'>
@@ -45,7 +45,7 @@ class Routine {
                 </select>
 
           <div>
-                <button class="${this.name.replace(' ','-').toLowerCase()}-workout-delete-btns all-routine-delete-btns" em em-x btns-delete id='delete-routine-${this.id}'data-action='delete-routine-${this.id}'>
+                <button class="${this.routine_name.replace(' ','-').toLowerCase()}-workout-delete-btns all-routine-delete-btns" em em-x btns-delete id='delete-routine-${this.id}'data-action='delete-routine-${this.id}'>
                 Delete
                 </button>
           </div>
@@ -57,13 +57,12 @@ class Routine {
           <section class="routine-workout-block"
             id='workout-${workout.id}'>
               <div class='routine-workout-names'>
-              ${workout.name}
+              ${workout.workout_name}
               
               <section class='routine-workout-details'>
               </section>
               </div>
           </section>
-
         `).join('')}
 
       </section>
@@ -74,18 +73,20 @@ class Routine {
 
 <label for="edit-routine-name">Name:</label>
 <input type="text" name="edit-routine-name"
-placeholder="${this.name}">
-<label for="edit-routine-workout-name">Workout:</label>
-<input type="text" name="edit-routine-workout-name"
-placeholder="">
-                                          <label for="edit-routine-duration">Duration:</label>
-                                          <input type="text" name="edit-routine-duration"
-                                              placeholder="drop-down-menu">
+placeholder="${this.routine_name}">
 
-                                      <!-- </fieldset> -->
-                                      <input class="btns-all" type="submit" data-action="update-routine-${this.id}" value="update routine">
-                                  </form>
-                              </div>
+      <label for="edit-routine-workout-name">Workout:</label>
+      <input type="text" name="edit-routine-workout-name"
+      placeholder="">
+
+      <label for="edit-routine-duration">Duration:</label>
+      <input type="text" name="edit-routine-duration"
+placeholder="drop-down-menu">
+
+<!-- </fieldset> -->
+      <input class="btns-all" type="submit" data-action="update-routine-${this.id}" value="update routine">
+  </form>
+</div>
 
 
 
@@ -116,12 +117,12 @@ placeholder="">
         // card2.append(workout)
         // console.log({workout})
         // console.log({card2})
-        // return `RENDERING ${workout.name}`
+        // return `RENDERING ${workout.workout_name}`
       // for (let w in workout)
       // console.log(w)
       // return `<h1> ${w} </h1>`
-      // console.log(workout.name)
-      // console.log("workout.name")
+      // console.log(workout.workout_name)
+      // console.log("workout.workout_name")
     // }
       // }
   // }
@@ -154,4 +155,4 @@ placeholder="">
   }
 }
 
-//             <a class="show-link" href='#'>${this.name}</a>
+//             <a class="show-link" href='#'>${this.routine_name}</a>
