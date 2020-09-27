@@ -27,25 +27,15 @@ class Routine {
 
                 <h1 class="routine-names">${this.routine_name}</h1>
 
-                <button id='btn-routine-${this.id}' class="${this.routine_name.replace(' ','-').toLowerCase()}-workout-edit-btns all-routine-edit-btns"
+                <button id='btn-routine-${this.id}' class="${this.routine_name.replace(' ','-').toLowerCase()}-workout-edit-btns all-routine-edit-btns btns-all"
 
                 data-action='edit-routine'>Edit</button>
 <section class='workout-list-unique'>
 
 </section>
-               <label for="workout-list">Add Workouts:
-                </label>
-
-                <select class="workout-list"> 
-                <option value="item-2">Item 2</option>
-                <option value="item-1">${`BLANK`}</option>
-                  <option value="item-3">Item 3</option>
-                  <option value="item-4">Item 4</option>
-                  <option value="item-5"></option>
-                </select>
 
           <div>
-                <button class="${this.routine_name.replace(' ','-').toLowerCase()}-workout-delete-btns all-routine-delete-btns" em em-x btns-delete id='delete-routine-${this.id}'data-action='delete-routine-${this.id}'>
+                <button class="${this.routine_name.replace(' ','-').toLowerCase()}-workout-delete-btns all-routine-delete-btns btns-all" em em-x btns-delete id='delete-routine-${this.id}'data-action='delete-routine-${this.id}'>
                 Delete
                 </button>
           </div>
@@ -78,6 +68,17 @@ class Routine {
       <label for="input-routine-duration">Duration:</label>
       <input type="text" name="input-routine-duration"
 placeholder="drop-down-menu">
+
+ <label for="workout-list">Add Workouts:
+                </label>
+
+                <select class="workout-list"> 
+                <option value="item-1">${`BLANK`}</option>
+                <option value="item-2">Item 2</option>
+                  <option value="item-3">Item 3</option>
+                  <option value="item-4">Item 4</option>
+                  <option value="item-5"></option>
+                </select>
 
 <!-- </fieldset> -->
       <input class="btns-all" type="submit" data-action="update-routine-${this.id}" value="update routine">
