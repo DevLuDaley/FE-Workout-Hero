@@ -256,3 +256,11 @@ ul {
 .delete-workout-link {
     color: red;
 }
+
+.workout-list{
+    background-color: #25657c;
+}
+#new-routine-name{
+    background-color: #25657c;
+
+}
