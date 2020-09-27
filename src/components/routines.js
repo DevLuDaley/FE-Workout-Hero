@@ -8,7 +8,7 @@ class Routines {
     // this.getUniqueWorkouts()
     // this.dropdownSetup()
     this.assignRoutines()
-    // this.addWorkout()
+    // this.toggleEditForm()
   }
 
   initBindingsAndEventListeners() {
@@ -33,7 +33,7 @@ class Routines {
     this.btnToggleForms.addEventListener('click', this.handleToggle.bind(this))
     this.spaContainer.addEventListener('click',this.handleDeleteRoutine.bind(this))
     this.spaContainer.addEventListener('click',this.handleDropDownMenu.bind(this))
-    this.spaContainer.addEventListener('click',this.addWorkout.bind(this))
+    this.spaContainer.addEventListener('click',this.toggleEditFrom.bind(this))
     //? need to rewire the addRoutine method to use data action so that the handleEdit function won't block it? UPDATE=> fixed the issue by chenging the trigger event for click to submit
     this.spaContainer.addEventListener('submit',this.handleEdit.bind(this))
     // this.routinesNode.addEventListener('click',this.handleEditRoutine.bind(this))
@@ -60,7 +60,7 @@ class Routines {
     })
         .then( this.assignRoutines.bind(this) )
       .then( this.dropdownSetup.bind(this) )
-      // .then(this.addWorkout.bind(this))
+      // .then(this.toggleEditForm.bind(this))
       // .then( this.render.bind(this) )
       .catch( (error) => console.log(error) )
     //   .catch( (error) => console.log("you broke it son!") )
@@ -118,35 +118,136 @@ this.routineCard.innerHTML  = routinesString;
 
     handleEdit(event) {
       event.preventDefault()
-      // this.editRoutineName = document.getElementById('edit-routine-name')
-      this.editRoutineWorkoutName = document.getElementById('edit-routine-workout-name')
-      console.log('Routines -> handleEdit -> this.editRoutineWorkoutName', this.editRoutineWorkoutName);
-        
-      this.routineFormId = document.getElementById(`edit-routine-${event}`)
-      console.log('Routines -> handleEdit -> this.routineFormId', this.routineFormId);
+      
+      // console.log('1 event.target.id',event.target.id)
+      
+      let targetId = event.target.id.replace("edit-routine-", "")
+      
+      // console.log('2 target.id', targetId)
+
+      // console.log('3 Routines -> handleEdit -> event.target.id.includes(`edit-routine-${targetId}`', event.target.id.includes(`edit-routine-${targetId}`))
+
+      // console.log('4 -> `edit-routine-${event.target.id}`', `edit-routine-${event.target.id}`);
+      if(event.target != null && event.target.id.includes(`edit-routine-${targetId}`))
+      
+      // console.log('5 event.target ', event.target );
+      
+      
+      
+      
+      {
+          // console.log("5 LU handleEDITis TRUE")
+          // this.editRoutineName = document.getElementById('edit-routine-name')
+          // this.editRoutineWorkoutName = document.getElementById('edit-routine-workout-name')
+          // console.log('Routines -> handleEdit -> this.editRoutineWorkoutName', this.editRoutineWorkoutName);
+          
+          // console.log('6 Routines -> handleEdit -> input_name value', inputName.value);
+          // this.routineFormId = document.getElementById(`edit-routine-${event}`)
+          // console.log('Routines -> handleEdit -> this.routineFormId', this.routineFormId);
+          let id = targetId
+          let inputName = document.getElementById(`input-routine-${id}-workout-name`)  
 
        const updateRoutineParams = {
-         'routineId': '7',
-         'workout_name': this.editRoutineWorkoutName, //.value,
-         'workout_type': 'Cardio',
-         'distance': '',
-         'duration': ''
+         "id": id,
+         "workout_name": inputName.value,
+         "workout_type": "Cardio",
+         "distance": 13,
+         "duration": 12,
+         "routine":[
+           {
+              }
+            ]
        }
-
-       this.adapter.editRoutine(updateRoutineParams)
-       .then( this.assignRoutines.bind(this) )
+              this.adapter.editRoutine(updateRoutineParams)
+              // .then( this.assignRoutines.bind(this) )
+              .then( resp => this.addWorkout(resp))
+      }
       
-       //  edit-routine-2
-
-  console.log('Routines -> handleEdit -> this.editRoutineWorkoutName', this.editRoutineWorkoutName);
-  // this.editRoutineWorkoutName.value
-  // console.log('Routines -> handleEdit -> this.editRoutineWorkoutName.value', this.editRoutineWorkoutName.value);
-    // else {console.log("NOPE")}
+      // else {console.log("NOPE")}
     // .then( this.assignRoutines.bind(this) )
     // .then( this.render.bind(this) )
     // .then(
     //   this.routinesForm.reset() )
   }
+
+  addWorkout(addWorkoutResponse){
+    const { workouts } = addWorkoutResponse
+    // const { id, workout_name} = workouts
+// console.log(`addWorkoutResponse["workouts"]`,addWorkoutResponse["workouts"])
+
+// let apiWorkouts = workouts.map(function({ id,workout_name}){
+//   return id, workout_name}
+  // )
+  
+  // console.log(apiWorkouts)
+
+    let changedElement = document.getElementById(`routine-${addWorkoutResponse["id"]}-workouts`)
+
+    console.log('Routines -> addWorkout -> addWorkoutResponse["id"]', addWorkoutResponse["id"]);
+
+    // console.log('Routines -> addWorkout -> changedElement', changedElement.innerHTML);
+    // this.routines = this.routines.find(id)
+    
+    // console.log('Routines -> addWorkout -> id', id);
+        let newBlock = addWorkoutResponse["workouts"].map(workout =>
+          `
+          <section class="routine-workout-block"
+          id='workout-${workout.id}'>
+          <div class='routine-workout-names'>
+          ${workout.workout_name}
+          <section class='routine-workout-details'>
+          </section>
+          </div>
+          </section>
+          `
+          ).join('')
+
+          changedElement.innerHTML = newBlock
+
+console.log('Routines -> addWorkout -> changedElement.innerHTML', changedElement.innerHTML);
+let editForm = document.getElementById(`edit-routine-${addWorkoutResponse["id"]}`)
+    // this.assignRoutines()
+  editForm.reset()
+  }
+
+/**
+ 
+"id": 2,
+  "routine_name": "Cardio Rush",
+  "workouts": [
+    {
+      "id": 14,
+      "workout_name": "volley ball",
+      "workout_type": "Cardio",
+      "distance": 2,
+      "duration": 4,
+      "created_at": "2020-09-26T18:39:27.523Z"
+    },
+    {
+      "id": 15,
+      "workout_name": "cricket",
+      "workout_type": "Cardio",
+      "distance": 8,
+      "duration": 10,
+      "created_at": "2020-09-26T18:39:27.529Z"
+    },
+    {
+      "id": 21,
+      "workout_name": "Break Dancing",
+      "workout_type": "Cardio",
+      "distance": 4,
+      "duration": 4,
+      "created_at": "2020-09-26T18:48:01.689Z"
+    }
+  ]
+}
+
+
+
+ */
+
+
+
 
   handleDeleteRoutine(event) {
     // event.preventDefault()
@@ -170,7 +271,12 @@ this.routineCard.innerHTML  = routinesString;
     // else{ console.log("THE IF STATEMENT IS FALSE")}
   }
 
-
+  
+  removeDeletedRoutine(deleteResponse) {
+    this.routines = this.routines.filter(routine => routine.id !== deleteResponse.routineId)
+    // this.render()
+    this.assignRoutines()
+  }
 
 getUniqueWorkouts(){
 this.adapter.getRoutines()
@@ -240,12 +346,7 @@ handleDropDownMenu(){
 }
 
 
-  
-  removeDeletedRoutine(deleteResponse) {
-    this.routines = this.routines.filter(routine => routine.id !== deleteResponse.routineId)
-    // this.render()
-    this.assignRoutines()
-  }
+
   
   routinesHTML() {
     return this.routines.map( routine => 
@@ -292,13 +393,13 @@ handleDropDownMenu(){
     }
 
 
-    addWorkout(event){
+    toggleEditFrom(event){
     // this.allRoutineWorkouts = document.getElementsByClassName('all-routine-workouts')
-    // console.log("addWorkout()", this.allRoutineWorkouts.namedItem('weight-training-workouts'))
+    // console.log("toggleEditForm()", this.allRoutineWorkouts.namedItem('weight-training-workouts'))
     // this.allRoutineWorkouts.map(w => console.log(w)
     // )
     // let wLength = this.allRoutineWorkouts.length
-    // console.log('Routines -> addWorkout -> this.allRoutineWorkouts.length', this.allRoutineWorkouts.length);
+    // console.log('Routines -> toggleEditForm -> this.allRoutineWorkouts.length', this.allRoutineWorkouts.length);
     // if
  if (event != null 
   && event.target.dataset.action === 'edit-routine'
@@ -310,17 +411,17 @@ handleDropDownMenu(){
     // if (event.target.dataset.action.includes("delete-routine")
     {
       console.log("LU THE IF STATEMENT IS TRUE!")
-      console.log('Routines -> addWorkout -> event.target', event.target);
-      console.log('Routines -> addWorkout -> event.target.dataset.action', event.target.dataset.action);
-      console.log('Routines -> addWorkout -> event.target.id', event.target.id);
+      console.log('Routines -> toggleEditForm -> event.target', event.target);
+      console.log('Routines -> toggleEditForm -> event.target.dataset.action', event.target.dataset.action);
+      console.log('Routines -> toggleEditForm -> event.target.id', event.target.id);
 
       let workoutsSection = document.getElementById(`routine-${event.target.id.replace('btn-routine-','')}-workouts`
       )
 
-      console.log('Routines -> addWorkout -> workoutsSection', workoutsSection);
+      console.log('Routines -> toggleEditForm -> workoutsSection', workoutsSection);
 
       let routineEditForm = document.getElementById(`edit-routine-${event.target.id.replace('btn-routine-','')}`)
-      console.log('Routines -> addWorkout -> routineEditForm', routineEditForm);
+      console.log('Routines -> toggleEditForm -> routineEditForm', routineEditForm);
 
       if (routineEditForm.classList.value.includes('hidden'))
       routineEditForm.classList.remove('hidden')
@@ -332,12 +433,12 @@ handleDropDownMenu(){
       // workoutsSection.appendChild(newString)
       // workoutsSection.innerHTML(newString)
       // workoutsSection.innerHTML += newString
-      // console.log('Routines -> addWorkout -> workoutsSection.innerHTML()', workoutsSection.innerHTML);
+      // console.log('Routines -> toggleEditForm -> workoutsSection.innerHTML()', workoutsSection.innerHTML);
 
     }
     else{ console.log("Lu THE IF STATEMENT IS FALSE")}
 
-    // console.log('Routines -> addWorkout -> this.allRoutineWorkouts[1]', this.allRoutineWorkouts.item(1));
+    // console.log('Routines -> toggleEditForm -> this.allRoutineWorkouts[1]', this.allRoutineWorkouts.item(1));
 
 
     

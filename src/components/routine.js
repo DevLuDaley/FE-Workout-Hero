@@ -71,16 +71,12 @@ class Routine {
 <legend><h1>Edit Routine</h1>
 </legend>
 
-<label for="edit-routine-name">Name:</label>
-<input type="text" name="edit-routine-name"
-placeholder="${this.routine_name}">
-
-      <label for="edit-routine-workout-name">Workout:</label>
-      <input type="text" name="edit-routine-workout-name"
+      <label for="input-routine-workout-name">Workout:</label>
+      <input type="text" name="input-routine-workout-name" id="input-routine-${this.id}-workout-name"
       placeholder="">
 
-      <label for="edit-routine-duration">Duration:</label>
-      <input type="text" name="edit-routine-duration"
+      <label for="input-routine-duration">Duration:</label>
+      <input type="text" name="input-routine-duration"
 placeholder="drop-down-menu">
 
 <!-- </fieldset> -->
