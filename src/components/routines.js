@@ -5,9 +5,9 @@ class Routines {
     this.initBindingsAndEventListeners()
     this.adapter = new RoutinesAdapter()
     this.fetchAndLoadRoutines()
+    this.assignRoutines()
     // this.getUniqueWorkouts()
     // this.dropdownSetup()
-    this.assignRoutines()
     // this.toggleEditForm()
   }
 
@@ -71,8 +71,7 @@ class Routines {
 // this.getUniqueWorkouts()
 let routinesString = this.routines.map(routine => routine.renderRoutinesAndWorkouts()
 ).join('')
-this.routineCard.innerHTML  = routinesString;
-  
+this.routineCard.innerHTML = routinesString;
   // routineCard.append(roos)
   // ! show list of routine names
   // roo.innerHTML = routineHeadingsList
