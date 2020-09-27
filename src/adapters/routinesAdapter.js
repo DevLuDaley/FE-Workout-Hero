@@ -33,16 +33,25 @@ class RoutinesAdapter {
   }
   // editRoutine(routineId) {
   editRoutine(updateRoutineParams) {
-    let routineId = updateRoutineParams["routineId"]
+    // let routineId = updateRoutineParams["routineId"]
      
-    const routineEditParams = {
+     const { 
+       // workout_name,
+       // workout_type,
+       // distance,
+       // duration,
+       id
+} = updateRoutineParams
+    
+  const routineEditParams = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ updateRoutineParams })
+      body: JSON.stringify(updateRoutineParams)
     }
-    return fetch(`${this.baseUrl}/${routineId}`, routineEditParams).then(res =>
+    return fetch(`${this.baseUrl}/${id}`, routineEditParams).then(res =>
+    // return fetch(`${this.baseUrl}/${updateRoutineParams["id"]}`, routineEditParams).then(res =>
       res.json()
       )
     }
