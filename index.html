@@ -2,99 +2,57 @@
 <html>
 
 <head>
-    <title>Sample JS Project frontend</title>
+    <title>Workout Hero App</title>
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-light">
-        <a class="navbar-brand">
-            <img src="logo.png" width="250" height="auto" class="d-inline-block align-top" alt="">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-    </nav>
-    <div class="container">
+    <section class="container" id="container">
+        <section id="spa-container">
+        <header id='app-title'> 
+            <h1>Workout Hero</h1>
+        </header>    
+            
+            
+            <section id="edit-create-wrapper">
+                <section id="routines-container">
 
-        <button class="center" id="toggle-edit-create">Edit Workout</button>
+                    <div id="edit-routine-container">
+                        
+                    </div>
+                    <!-- ! NEW ROUTINE CONTAINER -->
+                    <div class="edit-create-containers" id="new-routine-container">
+                        <form id="new-routine-form">
 
-        <div class="all-containers" id="edit-workout-container">
-            <form class='hidden' id="edit-workout-form">
-                <fieldset>
-                    <legend>Edit Workout
-                    </legend>
-                    <!-- <h1>Edit Workout</h1> -->
-                    <label for="edit-workout-type">Workout Type:</label>
-                    <input type="text" name="edit-workout-type" id="edit-workout-type" placeholder="cardio" <label
-                        for="edit-workout-name">Name:</label>
-                    <input type="text" name="edit-workout-name" id="edit-workout-name" placeholder="drop-down-menu">
+                            <label for="new-routine-name">Create Routine:</label>
+                            <input type="text" class='input-text' name="routine-name" id="new-routine-name"
+                                placeholder="">
 
-                    <label for="edit-workout-distance">Distance:</label>
-                    <input type="text" name="edit-workout-distance" id="edit-workout-distance"
-                        placeholder="drop-down-menu">
+                            <input class="btns-all" type="submit" value="save routine">
+                        </form>
+                    </div>
+            </section>
+            <section id=routine-card>
 
-                    <label for="edit-workout-duration">Duration:</label>
-                    <input type="text" name="edit-workout-duration" id="edit-workout-duration"
-                        placeholder="drop-down-menu">
+            </section>
+        </section>
+    </section>
 
-                </fieldset>
-                <input type="submit" value="update workout">
-            </form>
-        </div>
-        <div class="all-containers" id="new-workout-container">
-            <form id="new-workout-form">
-                <!-- <h1>Create Workout</h1> -->
-                <fieldset>
-                    <legend> Create Workout </legend>
+    <!-- ! use this for workout edits -->
+    <section id="workouts-container">
+    </section>
 
-                    <label for="workout-type">Workout Type:</label>
-                    <input type="text" name="workout-type" id="new-workout-type" placeholder="cardio">
-
-                    <label for="workout-name">Name:</label>
-                    <input type="text" name="workout-name" id="new-workout-name" placeholder="drop-down-menu">
-
-                    <label for="workout-distance">Distance:</label>
-                    <input type="text" name="workout-distance" id="new-workout-distance" placeholder="drop-down-menu">
-
-                    <label for="workout-duration">Duration:</label>
-                    <input type="text" name="workout-duration" id="new-workout-duration" placeholder="drop-down-menu">
-
-                </fieldset>
-                <input type="submit" value="save workout">
-            </form>
-        </div>
-
-        <div class="all-containers" id="larger-workouts-container">
-            <!-- <h1>Workouts</h1> -->
-            <fieldset>
-                <legend>
-                    <h1> Workouts </h1>
-                </legend>
-                <div class="all-containers" id="workouts-container">
-            </fieldset>
-
-        </div>
-    </div>
-    </div>
-
+    <script type="text/javascript" src="src/components/routine.js"></script>
+    <script type="text/javascript" src="src/adapters/routinesAdapter.js"></script>
+    <script type="text/javascript" src="src/components/routines.js"></script>
     <script type="text/javascript" src="src/components/workout.js"></script>
     <script type="text/javascript" src="src/adapters/workoutsAdapter.js"></script>
     <script type="text/javascript" src="src/components/workouts.js"></script>
     <script type="text/javascript" src="src/components/app.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
-    <!-- <script type="text/javascript" src="src/index.js"></script> -->
-
+    
 </body>
 
 </html>
