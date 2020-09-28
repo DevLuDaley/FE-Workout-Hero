@@ -5,43 +5,41 @@
 body{
 
     background-image: url("./static/free-weights-gym-equipment.jpg");
+    background-repeat: no-repeat,
+    repeat;
+    background-color: #25657c;
+    /* background-image: url("img_tree.gif"), */
+    /* url("paper.gif"); */
+    background-blend-mode: lighten;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    */
+    
 }
 .container {
     display: grid;
-    padding: auto;
-    margin: auto;
-    height: auto;
-    width: auto;
-    background-color: #25657c;
-    /* background-blend-mode: multiply; */
-    /* padding: 50px; */
-    /* margin: 150px; */
-    /* height: 500px; */
-    /* width: 500px; */
-    /* margin: auto; */
-    /* background-color: #072029; */
     opacity: 95%;
+    /* position: absolute; */
+    /* text-align: center; */
 }
 
 #spa-container {
-    padding: 55px;
-    /* margin: auto; */
-    /* height: 500px; */
-    background: rgb(53, 22, 85);
-    /* display: flex; */
-    /* display: grid; */
-    opacity: 60%;
-}
-
-#navbar {
-
+    /* position: absolute; */
+    padding: 250px;
+    margin: 50px;
+    height: auto;
+    width: auto;
+    background: rgb(44, 22, 66);
+    opacity: 95%;
 }
 
 .btns-all {
 border-radius: 8px;
-font-size: 10px;
-background-color: #8ca3a9;
-opacity: 0.87;
+font-size: 13px;
+background-color: #4c9baf;
+color: rgb(87, 31, 40);
+opacity: 0.9;
 }
 
 #btn-toggle-forms {
@@ -50,34 +48,32 @@ opacity: 0.87;
 }
 
 .all-routines{
-/* padding: auto; */
-  display: grid;
   padding: 15px;
   margin: auto;
   height: auto;
   width: auto;
-           padding-top: 30px;
-           padding-bottom: 5px;
+  padding-top: 30px;
+  padding-bottom: 5px;
 }
 
 .all-routine-edit-btns {
     font-size: 13px;
-    /* color: pink; */
+    /* color: rgb(87, 31, 40); */
     /* padding: 10px border-color: red; */
 }
 
 .routine-names {
     /* color: purple; */
     color: rgb(55, 167, 204);
-    font-size: 20px;    
+    font-size: 20px;
 }
 
 .routine-name-btns-wrapper {
     /* background-color: rgb(1, 13, 29); */
-    background-color: rgb(2, 1, 2);
+    /* background-color: rgb(2, 1, 2); */
     /* background-color: rgb(54, 41, 49); */
-    background-blend-mode: multiply;
-    /* background-color: rgb(10, 25, 43); */
+    /* background-blend-mode: multiply; */
+    background-color: rgb(10, 25, 43);
     /* background-color: rgb(30, 62, 99); */
     /* background-color: rgba(24, 47, 150, 0.377); */
     /* background-color: rgb(0, 23, 128); */
@@ -85,147 +81,55 @@ opacity: 0.87;
     /* display: auto; */
     padding: 1;
     grid-column-gap: 1em;
-    opacity: 60%;
+    opacity: 70%;
 }
 
 
-/* .routine-title-buttons>.em-x { */
-    /* ! delete button */
-.routine-name-wrapper>.em-x {
-    /* color: green; */
-    /* padding: 20px; */
-    background-color: rgb(188, 231, 188);
-    /* padding: center; */
-    /* height: auto; */
-    
-    /* margin: 5px; */
-    /* height: 28px; */
-    /* display: table-cell; */
-    /* padding-left: 27px; */
-    /* vertical-align: middle; */
-}
-
+/* 
 [data-action="edit-routine"] {
     /* padding: 2rem; */
     /* font-size: 125%; */
-    /* color: pink; */
+    /* color: pink;
 }
+     */
 
-.all-routines>section:nth-child(3) {
-    /* background: #db4848; */
-    /* background: #db4848; */
-    /* background-position: 5px 5px; */
-    /* padding: 1em; */
-    /* grid-template-rows: 1fr 3fr; */
-    
-}
 .routine-workout-block{
     /* background: limegreen; */
     /* display: flex; */
-    /* grid-template-rows: 25% 10px 10px auto; */
-    /* grid-template-columns: 25% 10px 10px auto; */
+    grid-template-rows: 25% auto;
+    grid-template-columns: 25% 10px 10px auto;
+    /* padding-top: 60px; */
 }
 .all-routine-workouts {
     /* background-color: red; */
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     padding: 1;
     
     border: 2px solid pink; 
     border-radius: 5px;
-    /* padding: 3px */
+    padding: 5px;
+
+    
 }
 
 .routine-workout-names {
     /* color: yellow; */
+    /* display: flex; */
     color: rgb(139, 139, 89);
-
-    /* border-style: round; */
-    /* border: round; */
     border: 2px solid rgb(149, 169, 187);
     border-radius: 5px;
-      /* width: 60px; */
-      /* height: 20px; */
-      padding: 10px;
-      /* margin: 10px; */
+      padding: 7px;
+      margin: 5px;
 }
 
-.routine-workout-details{
-    /* background: rgb(50, 128, 102); */
-    /* background: lightblue; */
-    /* display: flex; */
-    /* display: grid; */
+#routines-container {
+    background: rgb(45, 59, 87)
 }
 
-#weight-training-workouts {
-    /* background-color: orange; */
-    /* border-color: green; */
-    
-}
-
-#cardio-rush-workouts {
-    /* background-color: pink; */
-    /* border-color: green; */
-}
-
-
-.routine-workout-details{}
-.sub-containers {
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    /* background-color: #8ca3a9; */
-    /* opacity: 0.87; */
-    /* margin: 10; */
-    /* padding: 0; */
-    /* display: flex; */
-    /* justify-content: center; */
-
-    /* background-image: https: //st.depositphotos.com/1110663/1258/i/450/("depositphotos_12582372-stock-photo-gym-room.jpg"); */
-
-    /* margin-top: 20px; */
-    /* width: 960px; */
-
-}
-
-.edit-create-wrapper{
-
-}
-
-.edit-create-containers{}
-
-#edit-routine-container {}
-
-#new-routine-container {
-     /* background-image: url("./static/free-weights-gym-equipment.jpg"); */
-}
-
-
-
-#routines-container {}
-
-
-
-/* .yellow {
-    background: yellow
-} */
-
-
-body {
-    /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    line-height: 1.6em;
-    font-size: 1.3em;
-    */
-    /* background-image: url("./static/free-weights-gym-equipment.jpg"); */
-}
-
-a {
-    /* color: #97659; */
-    /* color: #6699ff; */
-    /* color: #cc33ff */
-}
 
 input {
-    /* font-size: 1.5em; */
+    font-size: 1.0em;
 }
 
 .hidden {
@@ -247,7 +151,42 @@ input {
 .workout-list{
     background-color: #25657c;
 }
-#new-routine-name{
-    background-color: #25657c;
 
+#new-routine-container{
+    background-color: rgb(44, 22, 66); 
+}
+
+#new-routine-form > label {
+    /* background-color:red; */
+    color: rgb(139, 139, 89);
+}
+
+#new-routine-form {
+    /* background-color:red; */
+    /* color: rgb(139, 139, 89); */
+    /* color: red; */
+    text-align:center
+}
+ #new-routine-name{
+    /* background-color: blue; */
+    
+}
+
+.input-text{
+    background-color: #25657c;
+    color: rgb(87, 31, 40);
+}
+
+#app-title{
+     color: rgb(55, 167, 204);
+     font-size: 30px;
+     /* position: center; */
+     text-align:center
+}
+.edit-forms{
+    padding: 10px;
+    /* border-color: green; */
+    /* border: 10px; */
+       border: 2px dotted rgb(27, 44, 27);
+       border-radius: 5px;
 }
