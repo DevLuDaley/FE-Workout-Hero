@@ -1,82 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Workout Hero App</title>
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
- 
+
 </head>
 
 <body>
     <section class="container" id="container">
-        <article id="spa-container">
-            <button class="btns-all" id="btn-toggle-forms">Edit Routine</button>
+        <section id="spa-container">
+        <header id='app-title'> 
+            <h1>Workout Hero</h1>
+        </header>    
             
-                <div id="edit-create-wrapper">
-            <section id="routines-container">
+            
+            <section id="edit-create-wrapper">
+                <section id="routines-container">
 
-                              <div id="edit-routine-container">
-                                  <form class='edit-create-containers hidden' id="edit-routine-form">
-                                      <!-- <fieldset> -->
-                                          <legend>Edit Routine
-                                          </legend>
-                                          <!-- <h1>Edit Routine</h1> -->
-                                          <label for="edit-routine-type">Routine Type:</label>
-                                          <input type="text" name="edit-routine-type" id="edit-routine-type"
-                                              placeholder="cardio" <label for="edit-routine-name">Name:</label>
-                                          <input type="text" name="edit-routine-name" id="edit-routine-name"
-                                              placeholder="drop-down-menu">
+                    <div id="edit-routine-container">
+                        
+                    </div>
+                    <!-- ! NEW ROUTINE CONTAINER -->
+                    <div class="edit-create-containers" id="new-routine-container">
+                        <form id="new-routine-form">
 
-                                          <label for="edit-routine-distance">Distance:</label>
-                                          <input type="text" name="edit-routine-distance" id="edit-routine-distance"
-                                              placeholder="drop-down-menu">
+                            <label for="new-routine-name">Create Routine:</label>
+                            <input type="text" class='input-text' name="routine-name" id="new-routine-name"
+                                placeholder="">
 
-                                          <label for="edit-routine-duration">Duration:</label>
-                                          <input type="text" name="edit-routine-duration" id="edit-routine-duration"
-                                              placeholder="drop-down-menu">
-
-                                      <!-- </fieldset> -->
-                                      <input class="btns-all" type="submit" value="update routine">
-                                  </form>
-                              </div>
-<!-- ! NEW ROUTINE CONTAINER -->
-                              <div class="edit-create-containers" id="new-routine-container">
-                                  <form id="new-routine-form">
-                                      <!-- <h1>Create Routine</h1> -->
-                                      <legend> Create Routine </legend>
-
-                                      <label for="routine-name">Name:</label>
-                                      <input type="text" name="routine-name" id="new-routine-name"
-                                          placeholder="drop-down-menu">
-
-                                      <input class="btns-all"  type="submit" value="save routine">
-                                  </form>
-                              </div>
-                          </div>
-                <section id=routine-card>
-
-                </section>
+                            <input class="btns-all" type="submit" value="save routine">
+                        </form>
+                    </div>
             </section>
-            <section id="workouts-container">
-           
+            <section id=routine-card>
+
             </section>
+        </section>
+    </section>
 
+    <!-- ! use this for workout edits -->
+    <section id="workouts-container">
+    </section>
 
-        </article>
-
-
-
-
-
-        <script type="text/javascript" src="src/components/routine.js"></script>
-        <script type="text/javascript" src="src/adapters/routinesAdapter.js"></script>
-        <script type="text/javascript" src="src/components/routines.js"></script>
-        <script type="text/javascript" src="src/components/workout.js"></script>
-        <script type="text/javascript" src="src/adapters/workoutsAdapter.js"></script>
-        <script type="text/javascript" src="src/components/workouts.js"></script>
-        <script type="text/javascript" src="src/components/app.js"></script>
-        <script type="text/javascript" src="src/index.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    <script type="text/javascript" src="src/components/routine.js"></script>
+    <script type="text/javascript" src="src/adapters/routinesAdapter.js"></script>
+    <script type="text/javascript" src="src/components/routines.js"></script>
+    <script type="text/javascript" src="src/components/workout.js"></script>
+    <script type="text/javascript" src="src/adapters/workoutsAdapter.js"></script>
+    <script type="text/javascript" src="src/components/workouts.js"></script>
+    <script type="text/javascript" src="src/components/app.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -85,8 +61,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script> -->
-        <!-- <script type="text/javascript" src="src/index.js"></script> -->
-
+    <!-- <script type="text/javascript" src="src/index.js"></script> -->
 </body>
 
 </html>
