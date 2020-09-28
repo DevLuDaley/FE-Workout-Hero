@@ -6,46 +6,31 @@ class Routines {
     this.adapter = new RoutinesAdapter()
     this.fetchAndLoadRoutines()
     this.assignRoutines()
-    // this.getUniqueWorkouts()
-    // this.dropdownSetup()
-    // this.toggleEditForm()
   }
 
   initBindingsAndEventListeners() {
     this.routineCard = document.getElementById('routine-card')
-    this.routinesForm = document.getElementById('new-routine-form')
+    this.routinesNode = document.getElementById('routines-container')
     this.editsForm = document.getElementById('edit-routine-form')
-    this.btnToggleForms = document.getElementById('btn-toggle-forms')
-    this.routineType = document.getElementById('new-routine-type')
     this.routineName = document.getElementById('new-routine-name')
-    this.routineDistance = document.getElementById('new-routine-distance')
-    this.routineDuration = document.getElementById('new-routine-duration')
-    this.routinesNode = document.getElementById('routines-container')
-    this.editRoutineType = document.getElementById('edit-routine-type')
-    // this.editRoutineName = document.getElementById('edit-routine-name')
-    this.editRoutineDistance = document.getElementById('edit-routine-distance')
-    this.editRoutineDuration = document.getElementById('edit-routine-duration')
-    this.routinesNode = document.getElementById('routines-container')
+    
+    //! Btns
     this.btnsDelete = document.querySelectorAll('btn-delete')
-    this.spaContainer = document.getElementById('spa-container')
     this.deleteBtns = document.getElementsByClassName('all-routine-delete-btns')
-    this.routinesForm.addEventListener('submit', this.handleAddRoutine.bind(this))
-    this.btnToggleForms.addEventListener('click', this.handleToggle.bind(this))
+    
+    // ! bindings that have event listeners
+    this.spaContainer = document.getElementById('spa-container')
     this.spaContainer.addEventListener('click',this.handleDeleteRoutine.bind(this))
-    this.spaContainer.addEventListener('click',this.handleDropDownMenu.bind(this))
+    
     this.spaContainer.addEventListener('click',this.toggleEditFrom.bind(this))
-    //? need to rewire the addRoutine method to use data action so that the handleEdit function won't block it? UPDATE=> fixed the issue by chenging the trigger event for click to submit
     this.spaContainer.addEventListener('submit',this.handleEdit.bind(this))
-    // this.routinesNode.addEventListener('click',this.handleEditRoutine.bind(this))
-    // for (const btn in this.editBtns){
-    //   btn.addEventListener('click', this.handleEditRoutine(this))
-    // }
-    // this.editBtns.addEventListener('click',this.handleEditRoutine.bind(this))
+
+    this.routinesForm = document.getElementById('new-routine-form')
+    this.routinesForm.addEventListener('submit', this.handleAddRoutine.bind(this))
   }
 
   fetchAndLoadRoutines() {
     this.adapter.getRoutines()
-    // .then(routinesJSON => routinesJSON.forEach( routine => this.routines.
     .then(routinesJSON => {
       // console.table({routinesJSON})
       // console.log({routinesJSON})
@@ -59,7 +44,7 @@ class Routines {
     // console.log(this.routines)
     })
         .then( this.assignRoutines.bind(this) )
-      .then( this.dropdownSetup.bind(this) )
+      // .then( this.dropdownSetup.bind(this) )
       // .then(this.toggleEditForm.bind(this))
       // .then( this.render.bind(this) )
       .catch( (error) => console.log(error) )
@@ -96,15 +81,12 @@ this.routineCard.innerHTML = routinesString;
   }
 
   handleAddRoutine(event) {
-    // console.log(this.routineName.value)
     event.preventDefault()
-    // event.stopPropagation() 
+
     const routineParams =
     {
       "routine_name": this.routineName.value
     }
-    // console.log('Routines -> handleAddRoutine -> this.routineName.value', this.routineName.value);
-    // console.log(routineParams)
 
     this.adapter.createRoutine(routineParams)
     .then( (routineJSON) => this.routines.push(new Routine(routineJSON)) )
@@ -148,7 +130,7 @@ this.routineCard.innerHTML = routinesString;
 
        const updateRoutineParams = {
          "id": id,
-         "workout_name": inputName.value,
+         "workout_name": inputName.value.toLowerCase(),
          "workout_type": "Cardio",
          "distance": 13,
          "duration": 12,
@@ -249,31 +231,18 @@ let editForm = document.getElementById(`edit-routine-${addWorkoutResponse["id"]}
 
 
   handleDeleteRoutine(event) {
-    // event.preventDefault()
     if (event.target.dataset.action != null && event.target.dataset.action.includes("delete-routine")
     ) 
-    // if (event.target.dataset == "DOMStringMap"
-    // //  && event.target.parentElement.classList.contains("routine-element")
-    // if (event.target.dataset.action.includes("delete-routine")
+
     {
-      // console.log("THE IF STATEMENT IS TRUE!")
-      // const routineId = event.target.parentElement.dataset.routineid
       const routineId = event.target.dataset.action.replace("delete-routine-", "")
-      // console.log('ROUTINE-ID' ,routineId)
-      // const deleteAction = event.target.dataset.action
-      //     console.log("ACTION: ", deleteAction)
-      // const routineId = deleteAction.replace('delete-routine-', '')
       this.adapter.deleteRoutine(routineId)
       .then( resp => this.removeDeletedRoutine(resp) )
     }
-    
-    // else{ console.log("THE IF STATEMENT IS FALSE")}
   }
-
   
   removeDeletedRoutine(deleteResponse) {
     this.routines = this.routines.filter(routine => routine.id !== deleteResponse.routineId)
-    // this.render()
     this.assignRoutines()
   }
 
@@ -307,42 +276,16 @@ this.adapter.getRoutines()
 // }
 }
 
-dropdownSetup(){
-  this.workoutListUnique = document.getElementsByClassName('workout-list-unique')
-  // console.log("UNIQUE",workoutListUnique)\
-  // console.log( "YUP",this.workoutListUnique )
-  this.workoutListUnique.innerHTML = `p>YO LU</p>
-  `
-}
-    // workoutListUnique.addEventListener('click', function() {
+// dropdownSetup(){
+//   this.workoutListUnique = document.getElementsByClassName('workout-list-unique')
+//   // console.log("UNIQUE",workoutListUnique)\
+//   // console.log( "YUP",this.workoutListUnique )
+//   this.workoutListUnique.innerHTML = `p>YO LU</p>
+//   `
+// }
 
-handleDropDownMenu(){
-  // var values = this.getUniqueWorkouts();
-  // let u = this.getUniqueWorkout()
-  // console.log("object")
-    // var values = ["dog", "cat", "parrot", "rabbit"];
-    // console.log("handleDropDownMenu => values", values)
-    // console.log("uniqueWorkoutsList", this.uniqueWorkoutsList)
-    // console.log("DROP",this.getUniqueWorkouts())
-
-  // var select = document.createElement("select");
-  // select.name = "pets";
-  // select.id = "pets"
-
-  // for (const val of values) {
-  //   var option = document.createElement("option");
-  //   option.value = val;
-  //   option.text = val.charAt(0).toUpperCase() + val.slice(1);
-  //   select.appendChild(option);
-  // }
-
-  // var label = document.createElement("label");
-  // label.innerHTML = "Choose your pets: "
-  // label.htmlFor = "pets";
-
-  // document.getElementById("container").appendChild(label).appendChild(select);
-  // document.getElementById("container").appendChild(select);
-}
+// handleDropDownMenu(){
+// }
 
 
 
@@ -353,67 +296,12 @@ handleDropDownMenu(){
       // routine.render()).join('')
     }
     
-    handleToggle() {
-      let hiddenTrue = this.editsForm.attributes[0].value.includes("hidden");
-  
-      if(hiddenTrue == true) {
-        // CREATE BUTTON = PURPLE
-        // this.editsForm.classList.add('shown')
-        this.editsForm.classList.remove('hidden')
-        this.routinesForm.classList.add('hidden')
-        this.btnToggleForms.innerHTML = "Create Routine"
-        this.routinesForm.reset()
-        // this.editsForm.classList.add('hidden')
-        // console.log('TOGGLE =>',this.ToggleEditCreate.innerHTML)
-        // this.ToggleEditCreate.style.backgroundColor = 'PaleGoldenRod'
-        // this.ToggleEditCreate.style.backgroundColor = 'PapayaWhip'
-        // this.btnToggleForms.style.color = 'light-blue'
-        // this.btnToggleForms.style.borderColor = "pink"
-      }
-      else {
-        // EDIT BUTTON = LIGHT-BLUE
-        this.routinesForm.classList.remove('hidden')
-        this.editsForm.classList.add('hidden')
-        this.btnToggleForms.innerHTML = "Edit Routine"
-        this.editsForm.reset()
-        // this.ToggleEditCreate.style.backgroundColor = ''
-        // this.ToggleEditCreate.style.backgroundColor = 'light-blue'
-        // this.ToggleEditCreate.style.backgroundColor = 'PapayaWhip'
-        // this.ToggleEditCreate.style.color = 'light-green'
-        // this.btnToggleForms.style.borderColor = "red"
-        // this.editsForm.classList.remove('hidden')
-  }
-  
-      // console.log(this.editsForm.attributes[0].value.includes("hidden"))
-      // console.count("Toggle works")
-      // this.editsForm.removeAttribute("class", "hidden")
-      // console.log(this.editsForm)
-      // this.editsForm.setAttribute('hidden', 'false')
-    }
+
 
 
     toggleEditFrom(event){
-    // this.allRoutineWorkouts = document.getElementsByClassName('all-routine-workouts')
-    // console.log("toggleEditForm()", this.allRoutineWorkouts.namedItem('weight-training-workouts'))
-    // this.allRoutineWorkouts.map(w => console.log(w)
-    // )
-    // let wLength = this.allRoutineWorkouts.length
-    // console.log('Routines -> toggleEditForm -> this.allRoutineWorkouts.length', this.allRoutineWorkouts.length);
-    // if
- if (event != null 
-  && event.target.dataset.action === 'edit-routine'
-//  if (event.target.dataset.action != null
-    ) 
-
-    // if (event.target.dataset == "DOMStringMap"
-    // //  && event.target.parentElement.classList.contains("routine-element")
-    // if (event.target.dataset.action.includes("delete-routine")
+   if (event != null && event.target.dataset.action === 'edit-routine')
     {
-      console.log("LU THE IF STATEMENT IS TRUE!")
-      console.log('Routines -> toggleEditForm -> event.target', event.target);
-      console.log('Routines -> toggleEditForm -> event.target.dataset.action', event.target.dataset.action);
-      console.log('Routines -> toggleEditForm -> event.target.id', event.target.id);
-
       let workoutsSection = document.getElementById(`routine-${event.target.id.replace('btn-routine-','')}-workouts`
       )
 
@@ -452,17 +340,4 @@ handleDropDownMenu(){
   //     }
   
   }
-
-  render() {
-      // ! shows routine table data
-  // this.largerContainer.append(rows)
-  // this.routineTh.innerHTML= this.routines[1].name
-          }
 }
-          // <a class="show-link" href='#'>${this.routines.map(routine => Object.keys(routine) )}</a>
-          //! trigger routines function
-//                 ${this.routinesHTML()}
-          // ! show workoutNames
-// `${r.workouts.map(w=> `Workoutname = ${w.name}`)}
-          // ! show routineNames
-          //  ${this.routines.map(r => `Routinename = ${r.name}`)}
