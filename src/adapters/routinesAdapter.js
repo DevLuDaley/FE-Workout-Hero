@@ -4,9 +4,11 @@ class RoutinesAdapter {
   }
 
   getRoutines() {
-    return fetch(this.baseUrl).then(res => res.json())
+    return fetch(this.baseUrl)
+    .then(res => res.json())
     // ! view promise response in chrome console
-    // return fetch(this.baseUrl).then(res => console.log(res.json()))
+    // return fetch(this.baseUrl)
+    // .then(res => console.log(res.json()))
   }
 
   createRoutine(routine) {
