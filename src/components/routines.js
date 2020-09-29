@@ -32,16 +32,12 @@ class Routines {
   fetchAndLoadRoutines() {
     this.adapter.getRoutines()
     .then(routinesJSON => {
-      // console.table({routinesJSON})
-      // console.log({routinesJSON})
       routinesJSON.forEach( routine => { 
         this.routines.
         // push(routine)
-        // ! create new note instance/object
+        // ! create new note instance
         push( new Routine(routine) )
-      // console.table(this.routine)
     })
-    // console.log(this.routines)
     })
         .then( this.assignRoutines.bind(this) )
       // .then( this.dropdownSetup.bind(this) )
