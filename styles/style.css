@@ -1,31 +1,21 @@
-
 * {
     margin: auto;
 }
-body{
 
+body {
     background-image: url("./static/free-weights-gym-equipment.jpg");
     background-repeat: no-repeat,
-    repeat;
+        repeat;
     background-color: #25657c;
-    /* background-image: url("img_tree.gif"), */
-    /* url("paper.gif"); */
     background-blend-mode: lighten;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    */
-    
 }
+
 .container {
     display: grid;
     opacity: 95%;
-    /* position: absolute; */
-    /* text-align: center; */
 }
 
 #spa-container {
-    /* position: absolute; */
     padding: 250px;
     margin: 50px;
     height: auto;
@@ -35,11 +25,11 @@ body{
 }
 
 .btns-all {
-border-radius: 8px;
-font-size: 13px;
-background-color: #4c9baf;
-color: rgb(87, 31, 40);
-opacity: 0.9;
+    border-radius: 8px;
+    font-size: 13px;
+    background-color: #4c9baf;
+    color: rgb(87, 31, 40);
+    opacity: 0.9;
 }
 
 #btn-toggle-forms {
@@ -47,80 +37,52 @@ opacity: 0.9;
     width: 100px;
 }
 
-.all-routines{
-  padding: 15px;
-  margin: auto;
-  height: auto;
-  width: auto;
-  padding-top: 30px;
-  padding-bottom: 5px;
+.all-routines {
+    padding: 15px;
+    margin: auto;
+    height: auto;
+    width: auto;
+    padding-top: 30px;
+    padding-bottom: 5px;
 }
 
 .all-routine-edit-btns {
     font-size: 13px;
-    /* color: rgb(87, 31, 40); */
-    /* padding: 10px border-color: red; */
 }
 
 .routine-names {
-    /* color: purple; */
     color: rgb(55, 167, 204);
     font-size: 20px;
 }
 
 .routine-name-btns-wrapper {
-    /* background-color: rgb(1, 13, 29); */
-    /* background-color: rgb(2, 1, 2); */
-    /* background-color: rgb(54, 41, 49); */
-    /* background-blend-mode: multiply; */
     background-color: rgb(10, 25, 43);
-    /* background-color: rgb(30, 62, 99); */
-    /* background-color: rgba(24, 47, 150, 0.377); */
-    /* background-color: rgb(0, 23, 128); */
     display: flex;
-    /* display: auto; */
     padding: 1;
     grid-column-gap: 1em;
     opacity: 70%;
 }
 
-
-/* 
-[data-action="edit-routine"] {
-    /* padding: 2rem; */
-    /* font-size: 125%; */
-    /* color: pink;
-}
-     */
-
-.routine-workout-block{
-    /* background: limegreen; */
-    /* display: flex; */
+.routine-workout-block {
     grid-template-rows: 25% auto;
     grid-template-columns: 25% 10px 10px auto;
-    /* padding-top: 60px; */
 }
+
 .all-routine-workouts {
-    /* background-color: red; */
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     padding: 1;
-    
-    border: 2px solid pink; 
+    border: 2px solid pink;
     border-radius: 5px;
     padding: 5px;
-
-    
 }
 
 .routine-workout-names {
-    /* color: yellow; */
-    /* display: flex; */
     color: rgb(139, 139, 89);
     border: 2px solid rgb(149, 169, 187);
     border-radius: 5px;
-      padding: 7px;
-      margin: 5px;
+    padding: 7px;
+    margin: 5px;
 }
 
 #routines-container {
@@ -140,7 +102,6 @@ input {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /* background-color: #8ca3a9; */
     opacity: 0.87;
 }
 
@@ -148,45 +109,36 @@ input {
     color: red;
 }
 
-.workout-list{
+.workout-list {
     background-color: #25657c;
 }
 
-#new-routine-container{
-    background-color: rgb(44, 22, 66); 
+#new-routine-container {
+    background-color: rgb(44, 22, 66);
 }
 
-#new-routine-form > label {
-    /* background-color:red; */
+#new-routine-form>label {
     color: rgb(139, 139, 89);
 }
 
 #new-routine-form {
-    /* background-color:red; */
-    /* color: rgb(139, 139, 89); */
-    /* color: red; */
-    text-align:center
-}
- #new-routine-name{
-    /* background-color: blue; */
-    
+    text-align: center
 }
 
-.input-text{
+.input-text {
     background-color: #25657c;
     color: rgb(87, 31, 40);
 }
 
-#app-title{
-     color: rgb(55, 167, 204);
-     font-size: 30px;
-     /* position: center; */
-     text-align:center
+#app-title {
+    color: rgb(55, 167, 204);
+    font-size: 30px;
+    /* position: center; */
+    text-align: center
 }
-.edit-forms{
+
+.edit-forms {
     padding: 10px;
-    /* border-color: green; */
-    /* border: 10px; */
-       border: 2px dotted rgb(27, 44, 27);
-       border-radius: 5px;
+    border: 2px dotted rgb(27, 44, 27);
+    border-radius: 5px;
 }
