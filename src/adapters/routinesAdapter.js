@@ -35,15 +35,7 @@ class RoutinesAdapter {
   }
   // editRoutine(routineId) {
   editRoutine(updateRoutineParams) {
-    // let routineId = updateRoutineParams["routineId"]
-     
-     const { 
-       // workout_name,
-       // workout_type,
-       // distance,
-       // duration,
-       id
-} = updateRoutineParams
+     const {  id } = updateRoutineParams
     
   const routineEditParams = {
       method: "PATCH",
